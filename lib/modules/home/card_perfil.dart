@@ -4,7 +4,6 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import '../../shared/themes/app_colors.dart';
 
-
 class CardPerfil extends StatefulWidget {
   const CardPerfil({Key? key}) : super(key: key);
 
@@ -18,11 +17,11 @@ class _MyWidgetState extends State<CardPerfil> {
     return Center(
       child: SizedBox(
         child: Card(
-          elevation: 4,
+          elevation: 2,
           child: Column(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(top: 10),
                 child: const CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage("../images/perfil.jpeg"),
@@ -53,7 +52,9 @@ class _MyWidgetState extends State<CardPerfil> {
                       text: TextSpan(
                           text: "Número da Matrícula: ",
                           style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w900),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black),
                           children: <TextSpan>[
                             TextSpan(
                               text: '001078',
@@ -69,7 +70,9 @@ class _MyWidgetState extends State<CardPerfil> {
                       text: TextSpan(
                           text: "Função Informada: ",
                           style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w900),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black),
                           children: <TextSpan>[
                             TextSpan(
                               text: 'COORDENADOR DE TECNOLOGIA DA INFORMAÇÃO',
@@ -85,7 +88,9 @@ class _MyWidgetState extends State<CardPerfil> {
                       text: TextSpan(
                           text: "Área Informada: ",
                           style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w900),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black),
                           children: <TextSpan>[
                             TextSpan(
                               text: 'SUPORTE ADMINISTRATIVO',
@@ -101,7 +106,9 @@ class _MyWidgetState extends State<CardPerfil> {
                       text: TextSpan(
                           text: "Setor Informado: ",
                           style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w900),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black),
                           children: <TextSpan>[
                             TextSpan(
                               text: 'GESTÃO DE OPERAÇÕES DE TI',
