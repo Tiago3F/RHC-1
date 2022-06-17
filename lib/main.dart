@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:rhcweb/screens/dashboard_screen.dart';
-import 'package:rhcweb/screens/edit_screen.dart';
+import 'package:rhcweb/modules/home/dashboard_screen.dart';
+import 'package:rhcweb/modules/perfil/edit_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rhcweb/shared/themes/app_text_styles.dart';
+
+import 'shared/themes/app_colors.dart';
 
 void main() {
   setPathUrlStrategy();
@@ -37,8 +39,8 @@ class MasterPage extends StatelessWidget {
       InnerView; //Aqui eu permitir que a variável receba um valor posteriormente, pois se não o "MasterPage" da erro.
   MasterPage() {
     Map<String, Widget> InnterRoutes = {
-      'dashboard': Dashboard(),
-      'home': const EditPage(),
+      'edit_perfil': EditPage(),
+      'home': Dashboard(),
     };
     InnerView = InnterRoutes[Get.parameters[
         'page_name']]!; // Já aqui eu permitir que a variável fosse iniciada como null, "pelo menos é o que eu acho que fiz!"
@@ -53,7 +55,7 @@ class MasterPage extends StatelessWidget {
           child: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                  opacity: 0.8,
+                    opacity: 0.8,
                     image: AssetImage("../images/sidebar.jpg"),
                     fit: BoxFit.cover)),
             child: ListView(
@@ -83,7 +85,6 @@ class MasterPage extends StatelessWidget {
                     )
                   ],
                 ),
-               
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
@@ -106,7 +107,7 @@ class MasterPage extends StatelessWidget {
                   leading: const Icon(FontAwesomeIcons.sitemap),
                   title: const Text('Organograma'),
                   onTap: () {
-                    Get.toNamed('/dashboard');
+                    Get.toNamed('/edit_perfil');
                   },
                 ),
                 const ListTile(
@@ -167,7 +168,6 @@ class MasterPage extends StatelessWidget {
                   textColor: Colors.white,
                   leading: Icon(FontAwesomeIcons.fileLines),
                   title: Text('Relatiorios e consultas'),
-                  
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -176,7 +176,7 @@ class MasterPage extends StatelessWidget {
                     style: TextStyles.titleRegular,
                   ),
                 ),
-                 const ListTile(
+                const ListTile(
                   iconColor: Colors.white,
                   textColor: Colors.white,
                   leading: Icon(FontAwesomeIcons.fileContract),
@@ -191,7 +191,150 @@ class MasterPage extends StatelessWidget {
           thickness: 1,
         ),
         Expanded(
-            flex: 6, child: Container(color: Colors.white, child: InnerView)),
+          // flex: 6, child: Container(color: Colors.white, child: InnerView)
+          child: Scaffold(
+            appBar: AppBar(
+              title: Column(
+                children: [
+                  Row(
+                    children: [
+                      Image.asset(
+                        "../images/logo-brisanet.png",
+                        height: 40,
+                        width: 40,
+                      ),
+                      Text("RH", style: TextStyle(color: Colors.orange)),
+                      Text("CONECTA",
+                          style: TextStyle(
+                              color: AppColors.select,
+                              fontWeight: FontWeight.w900)),
+                    ],
+                  ),
+                ],
+              ),
+              actions: [
+                Container(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("HOMEOFFICE/COVID-19",
+                            style: TextStyle(
+                                color: Colors.orange,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Icon(Icons.bug_report, color: Colors.black),
+                            Text("REPORTAR BUG",
+                                style: TextStyle(color: Colors.black)),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Stack(children: [
+                          IconButton(
+                            iconSize: 30,
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            padding: EdgeInsets.zero,
+                            constraints: BoxConstraints(),
+                            icon: Icon(
+                              Icons.email,
+                              color: Colors.black,
+                            ),
+                            onPressed: () {},
+                          ),
+                          Positioned(
+                            top: 1,
+                            right: 13,
+                            child: Container(
+                              padding: EdgeInsets.all(1),
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              constraints: BoxConstraints(
+                                minWidth: 17,
+                                minHeight: 10,
+                              ),
+                              child: Text(
+                                '0',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 11,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          )
+                        ]),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Stack(children: [
+                          IconButton(
+                            iconSize: 30,
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            padding: EdgeInsets.zero,
+                            constraints: BoxConstraints(),
+                            icon: Icon(
+                              Icons.house_siding_outlined,
+                              color: Colors.black,
+                            ),
+                            onPressed: () {},
+                          ),
+                          Positioned(
+                            top: 1,
+                            right: 13,
+                            child: Container(
+                              padding: EdgeInsets.all(1),
+                              decoration: new BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              constraints: BoxConstraints(
+                                minWidth: 17,
+                                minHeight: 10,
+                              ),
+                              child: Text(
+                                '0',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 11,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          )
+                        ]),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Icon(Icons.home, color: Colors.black),
+                            Text("INÍCIO",
+                                style: TextStyle(color: Colors.black)),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+              backgroundColor: Colors.white,
+            ),
+            body: Container(
+                child: Container(color: Colors.white, child: InnerView)),
+          ),
+        ),
       ],
     );
   }

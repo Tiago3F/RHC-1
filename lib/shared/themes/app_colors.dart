@@ -13,4 +13,5 @@ class AppColors {
   static final input = Color(0xFFE3E3E6);
   static final items = Color(0xFFa8acaf);
   static final select = Color(0xFF4c6782);
+  static final rhText = Color(0xFFdb7d4d);
 }

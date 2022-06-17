@@ -22,12 +22,6 @@ class _EditPageState extends State<EditPage> {
   TextEditingController bairro = TextEditingController();
   TextEditingController logradouro = TextEditingController();
 
-
-
-
-
-
-
   List<Step> stepList() => [
         Step(
           state: _activeStepIndex <= 0 ? StepState.indexed : StepState.editing,
@@ -198,7 +192,7 @@ class _EditPageState extends State<EditPage> {
                   const SizedBox(
                     height: 8,
                   ),
-                 TextField(
+                  TextField(
                     controller: cidade,
                     decoration: const InputDecoration(
                       labelText: 'Cidade residencial',
