@@ -31,7 +31,7 @@ class ItemModel {
   String informedSection;
 
   ItemModel({
-    this.expanded = false,
+    this.expanded = true,
     this.expanded2 = false,
     required this.headerPanel,
     required this.email,
