@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/route_manager.dart';
 
 import '../../shared/themes/app_colors.dart';
 
@@ -126,7 +127,7 @@ class _MyWidgetState extends State<CardPerfil> {
                         const SizedBox(height: 1),
                         ElevatedButton(
                           onPressed: () {
-                            // Respond to button press
+                            Get.toNamed('/edit_perfil');
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.green,

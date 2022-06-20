@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rhcweb/shared/themes/app_text_styles.dart';
+import '../../shared/themes/app_colors.dart';
 
 class EditPage extends StatefulWidget {
   const EditPage({Key? key}) : super(key: key);
@@ -10,12 +12,28 @@ class EditPage extends StatefulWidget {
 class _EditPageState extends State<EditPage> {
   int _activeStepIndex = 0;
 
-  TextEditingController name = TextEditingController();
-  TextEditingController nomeapresentacao = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController cpf = TextEditingController();
-  TextEditingController emailpessoal = TextEditingController();
-  TextEditingController filhos = TextEditingController();
+  TextEditingController name =
+      TextEditingController(text: 'OSVALDO TOMAZ CRISPIM');
+  TextEditingController nomeapresentacao =
+      TextEditingController(text: 'Osvaldo Crispim');
+  TextEditingController email =
+      TextEditingController(text: 'osvaldo@grupobrisanet.com.br');
+  TextEditingController cpf = TextEditingController(text: '031.312.543-65');
+  TextEditingController emailpessoal =
+      TextEditingController(text: 'osvaldotcf@gmail.com');
+  TextEditingController filhos = TextEditingController(text: '1');
+  TextEditingController empresa =
+      TextEditingController(text: 'BRISANET SERVICOS DE TELECOMUNICACOES S.A.');
+  TextEditingController setor =
+      TextEditingController(text: 'GESTAO DE OPERACOES DE TI');
+  TextEditingController funcao =
+      TextEditingController(text: 'COORDENADOR DE TECNOLOGIA DA INFORMACAO');
+  TextEditingController superior =
+      TextEditingController(text: 'JOAO PAULO ARAUJO DE QUEIROZ');
+  TextEditingController vinculo = TextEditingController(text: 'CTPS');
+  TextEditingController emailutilizado =
+      TextEditingController(text: 'E-mail grupo brisanet');
+
   TextEditingController escolaridade = TextEditingController();
   TextEditingController escolaridaderg = TextEditingController();
   TextEditingController cidade = TextEditingController();
@@ -28,57 +46,254 @@ class _EditPageState extends State<EditPage> {
           isActive: _activeStepIndex >= 0,
           title: const Text('Dados do colaborador'),
           content: Container(
-            child: Column(
-              children: [
-                TextField(
-                  controller: name,
-                  decoration: const InputDecoration(
-                    labelText: 'Nome completo',
-                  ),
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  children: [
+                    Text(
+                      'Dados pessoais',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'Nome completo*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: name,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'Nome apresentacao*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: nomeapresentacao,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'CPF*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: cpf,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'Email pessoal*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: emailpessoal,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Quantidade de filhos*'),
+                            subtitle: TextFormField(
+                              controller: filhos,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      'Dados empresariais',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'Email grupo brisanet*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: email,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'Email time brisa*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: email,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'Empresa*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: empresa,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'Setor*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: setor,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'Funcao informada*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: funcao,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Superior imediato*'),
+                            subtitle: TextFormField(
+                              controller: superior,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text(
+                              'Tipo de vinculo com a empresa*',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            subtitle: TextFormField(
+                              controller: vinculo,
+                              style: TextStyle(
+                                color: AppColors.items,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: Text('Qual email sera utilizado no login*'),
+                            subtitle: TextFormField(
+                              controller: emailutilizado,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
-                TextField(
-                  controller: nomeapresentacao,
-                  decoration: const InputDecoration(
-                    labelText: 'Nome apresentacao',
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                TextField(
-                  controller: cpf,
-                  obscureText: false,
-                  decoration: const InputDecoration(
-                    labelText: 'CPF',
-                  ),
-                ),
-                TextField(
-                  controller: emailpessoal,
-                  decoration: const InputDecoration(
-                    labelText: 'Email pessoal',
-                  ),
-                ),
-                TextField(
-                  controller: filhos,
-                  decoration: const InputDecoration(
-                    labelText: 'Quantidade de filhos',
-                  ),
-                ),
-                const Divider(
-                  height: 1,
-                  thickness: 1,
-                ),
-                const Text('Dados empresariais'),
-                TextField(
-                  controller: email,
-                  decoration: const InputDecoration(
-                    labelText: 'Email grupo brisanet',
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),
@@ -94,10 +309,10 @@ class _EditPageState extends State<EditPage> {
                     height: 8,
                   ),
                   TextField(
-                    controller: escolaridade,
                     decoration: const InputDecoration(
-                      labelText: 'Nivel de escolaridade',
+                      labelText: 'Nivel de escolaridade ',
                     ),
+                    controller: escolaridade,
                   ),
                   const SizedBox(
                     height: 8,
@@ -284,7 +499,7 @@ class _EditPageState extends State<EditPage> {
                     )),
               ),
               const SizedBox(
-                width: 900,
+                width: 600,
               ),
               OutlinedButton(
                 onPressed: controls.onStepCancel,

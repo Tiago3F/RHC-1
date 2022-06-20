@@ -16,6 +16,7 @@ class _ExpansionPanelDemoState extends State<ExpansionPanelPerfil> {
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(80),
           child: AppBar(
+            automaticallyImplyLeading: false,
             title: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
