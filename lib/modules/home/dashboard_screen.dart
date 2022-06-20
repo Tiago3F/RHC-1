@@ -15,7 +15,7 @@ class _DashboardState extends State<Dashboard> {
         height: double.infinity,
         child: LayoutBuilder(builder: (context, constraints) {
           // Large screens (tablet on landscape mode, desktop, TV)
-          if (constraints.maxWidth > 1024) {
+          if (constraints.maxWidth > 1300) {
             return Center(
               child: Container(
                   child: Padding(
@@ -44,7 +44,7 @@ class _DashboardState extends State<Dashboard> {
                             flex: 1,
                             fit: FlexFit.tight,
                             child: Container(
-                              margin: EdgeInsets.only(bottom: 500),
+                              margin: EdgeInsets.only(bottom: constraints.maxHeight - 440),
                               child: CardPerfil(),
                              
                             ),
